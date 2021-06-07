@@ -1,3 +1,6 @@
 [submodule "src/yolov5-pip"]
 	path = src/yolov5-pip
 	url = https://github.com/fcakyon/yolov5-pip.git
+[submodule "scripts/yolov5-pip"]
+	path = scripts/yolov5-pip
+	url = https://github.com/fcakyon/yolov5-pip.git
