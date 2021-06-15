@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58ba7bd7-b07d-41ce-ac0e-0113057ed646" name="Default Changelist" comment="">
+    <list default="true" id="58ba7bd7-b07d-41ce-ac0e-0113057ed646" name="Default Changelist" comment="update requirements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/track.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/tracker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +38,23 @@
       <updated>1623721423977</updated>
       <workItem from="1623721441250" duration="715000" />
       <workItem from="1623723156921" duration="761000" />
-      <workItem from="1623736996481" duration="10000" />
+      <workItem from="1623736996481" duration="131000" />
     </task>
+    <task id="LOCAL-00001" summary="update requirements">
+      <created>1623737029091</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623737029091</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update requirements">
+      <created>1623737037547</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623737037547</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -54,5 +71,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="update requirements" />
   </component>
 </project>

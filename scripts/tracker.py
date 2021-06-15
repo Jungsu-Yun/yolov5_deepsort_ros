@@ -50,10 +50,6 @@ class TrackerManager():
         self.weights_path = os.path.join(package_path, 'scripts', weights_name)
         rospy.loginfo("Found weights, loading %s", self.weights_path)
 
-        # Raise error if it cannot find the model
-        if not os.path.isfile(self.weights_path):
-            raise IOError(('{:s} not found.').format(self.weights_path))
-
         # Load image parameter and confidence threshold
         self.image_topic = rospy.get_param('~image_topic', '/image_raw')
         self.confidence_th = rospy.get_param('~confidence', 0.25)
