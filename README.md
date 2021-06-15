@@ -55,7 +55,10 @@
 ### 2. ROS Node Package Download
 * 의존성이 있는 리포지토리와 함께 clone을 실행합니다.
     ```
+    cd your_workspace/src
     git clone --recurse-submodules https://github.com/jungsuyun/yolov5_deepsort_ros.git
+    cd ..
+    catkin_make
     ```
     만약 `--recurse-submodules`를 하지 않았다면 `git submodule update --init`을 실행하여야 합니다.
 * Node의 모든 의존성 정보를 충족하는지 확인해야 한다. 해당 패키지는 python3.6 버전 이상에서 동작하며 몇가지 의존성 패키지를 설치해야 합니다.
@@ -117,3 +120,14 @@
     * int64 xmax : Bounding Box의 x축 최대값
     * int64 ymax : Bounding Box의 y축 최대값
 * [/detections_image_topic](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html) : Bounding Box, Class명이 입력된 Image topic을 발행합니다.
+
+## TroubleShooting
+### 1. ImportError: dynamic module does not define module export function (PyInit_cv_bridge_boost)
+해당 에러는 cv_bridge_boost관련 python 패키지를 찾지 못했을 경우에 발생합니다. cv_bridge 패키지를 설치한 폴더의 cv_bridge/CMakelist.txt파일을 열어 `find_package(Boost REQUIRED python3)`을 다음과 같이 수정합니다.
+```CMake
+find_package(Boost REQUIRED python3-py36)
+```
+그리고 다시 cv_bridge를 빌드한 뒤 실행합니다.
+
+### 2. ImportError: cannot import name 'BoundingBox'
+해당 에러는 yolov5_deepsort package를 빌드하지 않아 발생한 문제입니다. catkin_ws로 이동하여 `catkin_make`를 한 후 다시 패키지를 실행합니다.
