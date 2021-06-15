@@ -10,8 +10,7 @@
 
 본 리포지토리는 한국어, 영어로 설명되어 있으며 다음의 링크를 참고하시기 바랍니다.
 * [한국어](/doc/README_KOR.md)
-* [영어](/README.md)
-
+* [English](/README.md)
 
 ## Tutorials
 * [YoloV5로 원하는 Custom Dataset 만들기(외부링크)](https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data)

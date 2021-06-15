@@ -2,11 +2,15 @@
 <img src="./doc/track_all.gif" width="400"/> <img src="./doc/track_pedestrians.gif" width="400"/>
 
 ## Introduction
-본 레포지토리는 ROS, yolov5를 활용하여 객체를 탐지해내고, Deepsort 알고리즘을 활용하여 단일 객체를 분류 및 추적하는 기능을 ROS 패키지로 구현하였습니다.
-본 프로젝트의 원 소스코드는 아래와 같습니다.
+This repository implements ROS packages to detect objects using ROS, yolov5, and to classify and track single objects using Deepport algorithms.
+The source code of this project is as follows.
 
 * [mikel-brostrom/Yolov5_DeepSort_Pytorch](https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch.git)
 * [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
+
+This repository is described in Korean and English, and please refer to the following link.
+* [한국어](./doc/README_KOR.md)
+* [English](/README.md)
 
 ## Tutorials
 * [YoloV5로 원하는 Custom Dataset 만들기(외부링크)](https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data)
