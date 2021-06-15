@@ -69,20 +69,51 @@
 
 ## Run YoloV5 Deepsort Node
 ### 1. Run Detection Node
-* 기본적인 yolov5 detection node는 다음과 같이 실행합니다.
+* yolov5 detection node는 다음과 같이 실행합니다.
 
-    `roslaunch yolov5_deepsort detector.launch`
+    ```
+    roslaunch yolov5_deepsort detector.launch
+    ```
     
-    기본적으로 detection을 수행하는 image topic은 `/image_raw` 입니다. 만약 Subscribe image topic을 변경하고 싶다면 `detector.launch`의 다음 부분을 수정하면 됩니다.
+    기본적으로 detection을 수행하는 image topic은 `/image_raw` 입니다. 만약 Subscribe image topic을 변경하고 싶다면 `detector.launch`의 다음 부분을 수정해야 합니다.
 
-    `<arg name="image_topic"	                default="/image_raw"/>`
+    ```
+    <arg name="image_topic"	                default="/image_raw"/>
+    ```
+    여러개의 객체가 아닌 한개 또는 일부의 객체만 탐지하고 싶다면 `detector.launch`의 다음 부분을 수정해야 합니다. 전체 Class를 탐지하고자 한다면 None을 입력하고 특정 Class만 탐지를 하기 위해서는 Class명을 입력해야 합니다.
+    ```
+    <arg name="class_name"                  default='None'/>
+    <!-- <arg name="class_name"                  default='person'/> -->
+    ```
+* __실행 결과__
 
-* Published Topic
-    * [/detections_image_topic](https://github.com/jungsuyun/yolov5_deepsort_ros/blob/melodic/msg/BoundingBox.msg)
-        * string Class : 인식된 객체 클래스명
-        * float64 probability : 인식된 객체의 정확도
-        * int64 xmin : Bounding Box의 x축 최소값
-        * int64 ymin : Bounding Box의 y축 최소값
-        * int64 xmax : Bounding Box의 x축 최대값
-        * int64 ymax : Bounding Box의 y축 최대값
-    * 
+### 2. Run Deep Sort Node
+* yolov5 deepsort node는 다음과 같이 실행합니다.
+
+    ```
+    roslaunch yolov5_deepsort tracker.launch
+    ```
+    
+    기본적으로 detection을 수행하는 image topic은 `/image_raw` 입니다. 만약 Subscribe image topic을 변경하고 싶다면 `detector.launch`의 다음 부분을 수정해야 합니다.
+
+    ```
+    <arg name="image_topic"	                default="/image_raw"/>
+    ```
+    Tracking을 수행하는 Class의 초기값은 `person`입니다. 만약 다른 Class를 Tracking 하고자 한다면 `detector.launch`의 다음 부분을 수정해야 합니다.
+    ```
+    <arg name="class_name"                  default='person'/>
+    ```
+* __실행 결과__
+
+### 3. Subscribe Topic
+* [/image_raw](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html) : 객체를 검출하기 위한 Image topic을 Subscribe 합니다.
+
+### 4. Published Topic
+* [/detections_image_topic](https://github.com/jungsuyun/yolov5_deepsort_ros/blob/melodic/msg/BoundingBox.msg)
+    * string Class : 인식된 객체 클래스 및 분류된 값
+    * float64 probability : 인식된 객체의 정확도
+    * int64 xmin : Bounding Box의 x축 최소값
+    * int64 ymin : Bounding Box의 y축 최소값
+    * int64 xmax : Bounding Box의 x축 최대값
+    * int64 ymax : Bounding Box의 y축 최대값
+* [/detections_image_topic](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html) : Bounding Box, Class명이 입력된 Image topic을 발행합니다.
