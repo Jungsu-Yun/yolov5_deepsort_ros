@@ -65,7 +65,7 @@ This repository is described in Korean and English, and please refer to the foll
     cd ..
     catkin_make
     ```
-    If you did not do '--recurse-submodules', you must run 'git submodule update --init'.
+    If you did not do `--recurse-submodules`, you must run `git submodule update --init`.
 * Ensure that all dependency information in Node is met. The package works with Python 3.6 or later and requires several dependency packages to be installed.
     ```
     pip3 install "numpy>=1.18.5,<1.20" "matplotlib>=3.2.2,<4"
@@ -73,7 +73,7 @@ This repository is described in Korean and English, and please refer to the foll
     pip3 install -r requirements.txt
     ```
 * Github [prevents you from uploading more than 100MB of files](https://docs.github.com/en/github/managing-large-files/working-with-large-files/conditions-for-large-files). Therefore, you should download the weight file associated with Deepport.
-* [Download the Depsort-specific weight file](https://drive.google.com/drive/folders/1xhG0kRH1EX5B9_Iz8gQJb7UNnn_riXi6). Download the ckpt.t7 file to the path 'scripts/deep_sort_pytorch/deep_sort/deep/checkpoint/'.
+* [Download the Depsort-specific weight file](https://drive.google.com/drive/folders/1xhG0kRH1EX5B9_Iz8gQJb7UNnn_riXi6). Download the ckpt.t7 file to the path `scripts/deep_sort_pytorch/deep_sort/deep/checkpoint/`.
 
 ## Run YoloV5 Deepsort Node
 ### 1. Run Detection Node
@@ -83,12 +83,12 @@ This repository is described in Korean and English, and please refer to the foll
     roslaunch yolov5_deepsort detector.launch
     ```
     
-    By default, the image topic that performs detection is '/image_raw'. If you want to change the Subscribe image topic, you need to modify the following part of 'detector.launch'.
+    By default, the image topic that performs detection is `/image_raw`. If you want to change the Subscribe image topic, you need to modify the following part of `detector.launch`.
 
     ```
     <arg name="image_topic"	                default="/image_raw"/>
     ```
-    If you want to detect only one or a few objects, not multiple objects, you need to modify the following parts of 'detector.launch'. If you want to detect the entire class, you must enter None, and if you want to detect only a specific class, you must enter the class name.
+    If you want to detect only one or a few objects, not multiple objects, you need to modify the following parts of `detector.launch`. If you want to detect the entire class, you must enter None, and if you want to detect only a specific class, you must enter the class name.
     ```
     <arg name="class_name"                  default='None'/>
     <!-- <arg name="class_name"                  default='person'/> -->
@@ -101,12 +101,12 @@ This repository is described in Korean and English, and please refer to the foll
     roslaunch yolov5_deepsort tracker.launch
     ```
     
-    By default, the image topic that performs detection is '/image_raw'. If you want to change the Subscribe image topic, you need to modify the following part of 'detector.launch'.
+    By default, the image topic that performs detection is `/image_raw`. If you want to change the Subscribe image topic, you need to modify the following part of `detector.launch`.
 
     ```
     <arg name="image_topic"	                default="/image_raw"/>
     ```
-    The initial value of the class that performs tracking is 'person'. If you want to track another class, you need to modify the next part of 'detector.launch'.
+    The initial value of the class that performs tracking is `person`. If you want to track another class, you need to modify the next part of 'detector.launch'.
     ```
     <arg name="class_name"                  default='person'/>
     ```
@@ -126,11 +126,11 @@ This repository is described in Korean and English, and please refer to the foll
 
 ## TroubleShooting
 #### ImportError: dynamic module does not define module export function (PyInit_cv_bridge_boost)
-This error occurs when a python package related to cv_bridge_boost is not found. Open the cv_bridge/CMakelist.txt file in the folder where you installed the cv_bridge package and modify 'found_package(Boost REQUIRED python3)' as follows:
+This error occurs when a python package related to cv_bridge_boost is not found. Open the cv_bridge/CMakelist.txt file in the folder where you installed the cv_bridge package and modify `found_package(Boost REQUIRED python3)` as follows:
 ```CMake
 find_package(Boost REQUIRED python3-py36)
 ```
 Then build and run cv_bridge again.
 
 #### ImportError: cannot import name 'BoundingBox'
-This error is caused by not building yolov5_deepport package. Go to catkin_ws, 'catkin_make' and run the package again.
+This error is caused by not building yolov5_deepport package. Go to catkin_ws, `catkin_make` and run the package again.
