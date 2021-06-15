@@ -19,4 +19,35 @@
     $ sudo apt install ros-melodic-desktop-full --fix-missing
     $ sudo pip3 install rospkg catkin_pkg
     ```
-* 
+* python3환경에서 cv_bridge를 사용하는 경우 에러가 발생합니다. 그러므로 cv_bridge를 melodic version에 맞춰 재 빌드를 해주어야 합니다.
+    ```s
+    $ sudo apt-get install python-catkin-tools python3-catkin-pkg-modules
+    # Create catkin workspace
+    $ mkdir catkin_workspace
+    $ cd catkin_workspace
+    $ catkin init
+    
+    # Instruct catkin to set cmake variables
+    $ catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.6m -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so
+    
+    # Instruct catkin to install built packages into install place. It is $CATKIN_WORKSPACE/install folder
+    $ catkin config --install
+    
+    # Clone cv_bridge src
+    $ git clone https://github.com/ros-perception/vision_opencv.git src/vision_opencv
+    
+    # Find version of cv_bridge in your repository
+    $ apt-cache show ros-melodic-cv-bridge | grep Version
+        Version: 1.13.0-0bionic.20210505.032238
+    
+    # Checkout right version in git repo. In our case it is 1.13.0
+    $ cd src/vision_opencv/
+    $ git checkout 1.13.0
+    $ cd ../../
+    
+    # Build
+    $ catkin build cv_bridge
+    
+    # Extend environment with new package
+    $ echo "source install/setup.bash --extend" >> bashrc
+    ```
