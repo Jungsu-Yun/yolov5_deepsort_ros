@@ -66,7 +66,7 @@
     catkin_make
     ```
     만약 `--recurse-submodules`를 하지 않았다면 `git submodule update --init`을 실행하여야 합니다.
-* Node의 모든 의존성 정보를 충족하는지 확인해야 한다. 해당 패키지는 python3.6 버전 이상에서 동작하며 몇가지 의존성 패키지를 설치해야 합니다.
+* Node의 모든 의존성 정보를 충족하는지 확인해야 합니다. 해당 패키지는 python3.6 버전 이상에서 동작하며 몇가지 의존성 패키지를 설치해야 합니다.
     ```
     pip3 install "numpy>=1.18.5,<1.20" "matplotlib>=3.2.2,<4"
     pip3 install yolov5
