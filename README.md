@@ -122,12 +122,12 @@
 * [/detections_image_topic](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html) : Bounding Box, Class명이 입력된 Image topic을 발행합니다.
 
 ## TroubleShooting
-### 1. ImportError: dynamic module does not define module export function (PyInit_cv_bridge_boost)
+#### ImportError: dynamic module does not define module export function (PyInit_cv_bridge_boost)__
 해당 에러는 cv_bridge_boost관련 python 패키지를 찾지 못했을 경우에 발생합니다. cv_bridge 패키지를 설치한 폴더의 cv_bridge/CMakelist.txt파일을 열어 `find_package(Boost REQUIRED python3)`을 다음과 같이 수정합니다.
 ```CMake
 find_package(Boost REQUIRED python3-py36)
 ```
 그리고 다시 cv_bridge를 빌드한 뒤 실행합니다.
 
-### 2. ImportError: cannot import name 'BoundingBox'
+#### ImportError: cannot import name 'BoundingBox'
 해당 에러는 yolov5_deepsort package를 빌드하지 않아 발생한 문제입니다. catkin_ws로 이동하여 `catkin_make`를 한 후 다시 패키지를 실행합니다.
