@@ -1,5 +1,5 @@
 # YoloV5 DeepSORT Pytorch ROS
-<img_src="./doc/track_all.gif" width="400"/><img_src="./doc/track_pedestrians.gif" width="400"/>
+<img src="./doc/track_all.gif" width="400"/> <img src="./doc/track_pedestrians.gif" width="400"/>
 
 ## Introduction
 본 프로젝트는 ROS, yolov5를 활용하여 객체를 탐지해내고, Deepsort 알고리즘을 활용하여 단일 객체를 분류 및 추적하는 기능을 ROS 패키지로 구현하였습니다.
