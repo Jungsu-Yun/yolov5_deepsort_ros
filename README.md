@@ -115,7 +115,7 @@ This repository is described in `Korean` and `English`, and please refer to the 
 * [/image_raw](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html) : Subscribe Image topic to detect objects.
 
 ### 4. Published Topic
-* [/detections_image_topic](https://github.com/jungsuyun/yolov5_deepsort_ros/blob/melodic/msg/BoundingBox.msg)
+* [/detected_objects_in_image](https://github.com/jungsuyun/yolov5_deepsort_ros/blob/melodic/msg/BoundingBox.msg)
     * string Class
     * float64 probability
     * int64 xmin
