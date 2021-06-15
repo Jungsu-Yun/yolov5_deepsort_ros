@@ -2,13 +2,13 @@
 <img src="./doc/track_all.gif" width="400"/> <img src="./doc/track_pedestrians.gif" width="400"/>
 
 ## Introduction
-This repository implements ROS packages to detect objects using ROS, yolov5, and to classify and track single objects using Deepport algorithms.
+This repository implements ROS packages to detect objects using `ROS`, `yolov5`, and to classify and track single objects using `Deepport algorithms`.
 The source code of this repository is as follows.
 
 * [mikel-brostrom/Yolov5_DeepSort_Pytorch](https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch.git)
 * [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 
-This repository is described in Korean and English, and please refer to the following link.
+This repository is described in `Korean` and `English`, and please refer to the following link.
 * [한국어](./doc/README_KOR.md)
 * [English](/README.md)
 
@@ -59,7 +59,7 @@ This repository is described in Korean and English, and please refer to the foll
 
 ### 2. ROS Node Package Download
 * Run clone with a repository that is dependent.
-    ```
+    ```s
     cd your_workspace/src
     git clone --recurse-submodules https://github.com/jungsuyun/yolov5_deepsort_ros.git
     cd ..
@@ -67,7 +67,7 @@ This repository is described in Korean and English, and please refer to the foll
     ```
     If you did not do `--recurse-submodules`, you must run `git submodule update --init`.
 * Ensure that all dependency information in Node is met. The package works with Python 3.6 or later and requires several dependency packages to be installed.
-    ```
+    ```s
     pip3 install "numpy>=1.18.5,<1.20" "matplotlib>=3.2.2,<4"
     pip3 install yolov5
     pip3 install -r requirements.txt
@@ -79,17 +79,17 @@ This repository is described in Korean and English, and please refer to the foll
 ### 1. Run Detection Node
 * The yolov5 detection node runs as follows:
 
-    ```
+    ```s
     roslaunch yolov5_deepsort detector.launch
     ```
     
     By default, the image topic that performs detection is `/image_raw`. If you want to change the Subscribe image topic, you need to modify the following part of `detector.launch`.
 
-    ```
+    ```xml
     <arg name="image_topic"	                default="/image_raw"/>
     ```
     If you want to detect only one or a few objects, not multiple objects, you need to modify the following parts of `detector.launch`. If you want to detect the entire class, you must enter None, and if you want to detect only a specific class, you must enter the class name.
-    ```
+    ```xml
     <arg name="class_name"                  default='None'/>
     <!-- <arg name="class_name"                  default='person'/> -->
     ```
@@ -97,17 +97,17 @@ This repository is described in Korean and English, and please refer to the foll
 ### 2. Run Deep Sort Node
 * yolov5 depthort node runs as follows:
 
-    ```
+    ```s
     roslaunch yolov5_deepsort tracker.launch
     ```
     
     By default, the image topic that performs detection is `/image_raw`. If you want to change the Subscribe image topic, you need to modify the following part of `detector.launch`.
 
-    ```
+    ```xml
     <arg name="image_topic"	                default="/image_raw"/>
     ```
     The initial value of the class that performs tracking is `person`. If you want to track another class, you need to modify the next part of 'detector.launch'.
-    ```
+    ```xml
     <arg name="class_name"                  default='person'/>
     ```
 
