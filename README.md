@@ -15,39 +15,46 @@
 ### 1. Configuring the Python3 environment for ROS Melodic
 * YoloV5는 Python3 환경에서 구동됩니다. 그러므로 해당 패키지를 실행하기 전 ROS Medloic 환경에서 Python3 Node가 구동되도록 환경설정을 해주어야 합니다.
     ```s
-    $ sudo apt-get install python3-pip python3-all-dev python3-yaml python3-rospkg
-    $ sudo apt install ros-melodic-desktop-full --fix-missing
-    $ sudo pip3 install rospkg catkin_pkg
+    sudo apt-get install python3-pip python3-all-dev python3-yaml python3-rospkg
+    sudo apt install ros-melodic-desktop-full --fix-missing
+    sudo pip3 install rospkg catkin_pkg
     ```
 * python3환경에서 cv_bridge를 사용하는 경우 에러가 발생합니다. 그러므로 cv_bridge를 melodic version에 맞춰 재 빌드를 해주어야 합니다.
     ```s
-    $ sudo apt-get install python-catkin-tools python3-catkin-pkg-modules
+    sudo apt-get install python-catkin-tools python3-catkin-pkg-modules
     # Create catkin workspace
-    $ mkdir catkin_workspace
-    $ cd catkin_workspace
-    $ catkin init
+    mkdir catkin_workspace
+    cd catkin_workspace
+    catkin init
     
     # Instruct catkin to set cmake variables
-    $ catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.6m -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so
+    catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.6m -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so
     
     # Instruct catkin to install built packages into install place. It is $CATKIN_WORKSPACE/install folder
-    $ catkin config --install
+    catkin config --install
     
     # Clone cv_bridge src
-    $ git clone https://github.com/ros-perception/vision_opencv.git src/vision_opencv
+    git clone https://github.com/ros-perception/vision_opencv.git src/vision_opencv
     
     # Find version of cv_bridge in your repository
-    $ apt-cache show ros-melodic-cv-bridge | grep Version
+    apt-cache show ros-melodic-cv-bridge | grep Version
         Version: 1.13.0-0bionic.20210505.032238
     
     # Checkout right version in git repo. In our case it is 1.13.0
-    $ cd src/vision_opencv/
-    $ git checkout 1.13.0
-    $ cd ../../
+    cd src/vision_opencv/
+    git checkout 1.13.0
+    cd ../../
     
     # Build
-    $ catkin build cv_bridge
+    catkin build cv_bridge
     
     # Extend environment with new package
-    $ echo "source install/setup.bash --extend" >> bashrc
+    echo "source install/setup.bash --extend" >> bashrc
     ```
+### 2. ROS Node Package Download
+* 의존성이 있는 리포지토리와 함께 clone을 실행합니다.
+    ```
+    git clone --recurse-submodules https://github.com/jungsuyun/yolov5_deepsort_ros.git
+    ```
+    만약 `--recurse-submodules`를 하지 않았다면 `git submodule update --init`을 실행하여야 합니다.
+* 
