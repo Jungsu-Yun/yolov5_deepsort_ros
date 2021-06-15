@@ -2,13 +2,13 @@
 <img src="./track_all.gif" width="400"/> <img src="./track_pedestrians.gif" width="400"/>
 
 ## Introduction
-본 레포지토리는 ROS, yolov5를 활용하여 객체를 탐지해내고, Deepsort 알고리즘을 활용하여 단일 객체를 분류 및 추적하는 기능을 ROS 패키지로 구현하였습니다.
+본 레포지토리는 `ROS`, `yolov5`를 활용하여 객체를 탐지해내고, `Deepsort 알고리즘`을 활용하여 단일 객체를 분류 및 추적하는 기능을 ROS 패키지로 구현하였습니다.
 본 프로젝트의 원 소스코드는 아래와 같습니다.
 
 * [mikel-brostrom/Yolov5_DeepSort_Pytorch](https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch.git)
 * [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 
-본 리포지토리는 한국어, 영어로 설명되어 있으며 다음의 링크를 참고하시기 바랍니다.
+본 리포지토리는 `한국어`, `영어`로 설명되어 있으며 다음의 링크를 참고하시기 바랍니다.
 * [한국어](/doc/README_KOR.md)
 * [English](/README.md)
 
@@ -18,13 +18,13 @@
 
 ## Before You Run Node
 ### 1. Configuring the Python3 environment for ROS Melodic
-* YoloV5는 Python3 환경에서 구동됩니다. 그러므로 해당 패키지를 실행하기 전 ROS Medloic 환경에서 Python3 Node가 구동되도록 환경설정을 해주어야 합니다.
+* YoloV5는 `Python3 환경`에서 구동됩니다. 그러므로 해당 패키지를 실행하기 전 `ROS Medloic 환경에서 Python3 Node`가 구동되도록 환경설정을 해주어야 합니다.
     ```s
     sudo apt-get install python3-pip python3-all-dev python3-yaml python3-rospkg
     sudo apt-get install ros-melodic-desktop-full --fix-missing
     sudo pip3 install rospkg catkin_pkg
     ```
-* python3환경에서 cv_bridge를 사용하는 경우 에러가 발생합니다. 그러므로 cv_bridge를 melodic version에 맞춰 재 빌드를 해주어야 합니다.
+* python3환경에서 `cv_bridge`를 사용하는 경우 에러가 발생합니다. 그러므로 cv_bridge를 melodic version에 맞춰 재 빌드를 해주어야 합니다.
     ```s
     sudo apt-get install python-catkin-tools python3-catkin-pkg-modules
     # Create catkin workspace
@@ -116,7 +116,7 @@
 * [/image_raw](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html) : 객체를 검출하기 위한 Image topic을 Subscribe 합니다.
 
 ### 4. Published Topic
-* [/detections_image_topic](https://github.com/jungsuyun/yolov5_deepsort_ros/blob/melodic/msg/BoundingBox.msg)
+* [/detected_objects_in_image](https://github.com/jungsuyun/yolov5_deepsort_ros/blob/melodic/msg/BoundingBox.msg)
     * string Class : 인식된 객체 클래스 및 분류된 값
     * float64 probability : 인식된 객체의 정확도
     * int64 xmin : Bounding Box의 x축 최소값
