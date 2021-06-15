@@ -18,13 +18,13 @@ This repository is described in `Korean` and `English`, and please refer to the 
 
 ## Before You Run Node
 ### 1. Configuring the Python3 environment for ROS Melodic
-* YoloV5 runs in Python 3 environments. Therefore, before running the package, you must configure the node using Python 3 to run in the ROS Medloic environment.
+* YoloV5 runs in `Python 3 environments`. Therefore, before running the package, you must configure the node using Python 3 to run in the `ROS Medloic environment`.
     ```s
     sudo apt-get install python3-pip python3-all-dev python3-yaml python3-rospkg
     sudo apt-get install ros-melodic-desktop-full --fix-missing
     sudo pip3 install rospkg catkin_pkg
     ```
-* Error occurs when using cv_bridge in python3 environment. Therefore, you should rebuild the CV_bridge according to the melodic version.
+* Error occurs when using `cv_bridge` in python3 environment. Therefore, you should rebuild the `cv_bridge` according to the melodic version.
     ```s
     sudo apt-get install python-catkin-tools python3-catkin-pkg-modules
     # Create catkin workspace
