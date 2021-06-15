@@ -122,7 +122,7 @@
 * [/detections_image_topic](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html) : Bounding Box, Class명이 입력된 Image topic을 발행합니다.
 
 ## TroubleShooting
-#### ImportError: dynamic module does not define module export function (PyInit_cv_bridge_boost)__
+#### ImportError: dynamic module does not define module export function (PyInit_cv_bridge_boost)
 해당 에러는 cv_bridge_boost관련 python 패키지를 찾지 못했을 경우에 발생합니다. cv_bridge 패키지를 설치한 폴더의 cv_bridge/CMakelist.txt파일을 열어 `find_package(Boost REQUIRED python3)`을 다음과 같이 수정합니다.
 ```CMake
 find_package(Boost REQUIRED python3-py36)
